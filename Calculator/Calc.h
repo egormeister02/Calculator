@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <math.h>
 
 
 #define ASSERT(condition)                                         \
@@ -13,12 +13,17 @@ if (!(condition)){                                                \
            #condition, __FILE__, __LINE__, __PRETTY_FUNCTION__);  \
     abort();}
 
-int GetG(const char*);
 
-int GetE(const char**);
+double GetG(const char*);
 
-int GetT(const char**);
+double GetE(const char**);
 
-int GetP(const char**);
+double GetT(const char**);
 
-int GetN(const char**);
+double GetB(const char**);
+
+double GetP(const char**);
+
+double GetN(const char**);
+
+double GetF(const char**);
