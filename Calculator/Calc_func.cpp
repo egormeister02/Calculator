@@ -39,11 +39,15 @@ double GetB(const char** s)
 
 double GetP(const char** s)
 {
-    double val = GetF(s);
+    double val;
+    if (**s == '(')
+        val = GetB(s);
+    else
+        val = GetF(s);
     if (**s == '^')
     {
         *s += 1;
-        double val1 = GetF(s);
+        double val1 = GetB(s);
         val = pow(val, val1);
     }
     return val;
@@ -67,12 +71,12 @@ double GetE(const char** s)
 
 double GetT(const char** s)
 {
-    double val = GetB(s);
+    double val = GetP(s);
     while (**s == '*' || **s == '/')
     {
         char op = **s;
         *s += 1;
-        double val2 = GetB(s);
+        double val2 = GetP(s);
         if (op == '*')
             val *= val2;
         else
